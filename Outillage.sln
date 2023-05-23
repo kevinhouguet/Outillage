@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Outillage", "Outillage\Outillage.csproj", "{900A6F95-13A4-4575-89B2-5097CC2D9055}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{900A6F95-13A4-4575-89B2-5097CC2D9055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{900A6F95-13A4-4575-89B2-5097CC2D9055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{900A6F95-13A4-4575-89B2-5097CC2D9055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{900A6F95-13A4-4575-89B2-5097CC2D9055}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A6F5342-B994-4AC7-96F5-BD259E7BECA0}
+	EndGlobalSection
+EndGlobal
