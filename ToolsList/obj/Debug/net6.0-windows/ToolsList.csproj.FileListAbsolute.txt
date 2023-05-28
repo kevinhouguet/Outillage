@@ -20,7 +20,6 @@ D:\Dev\C#\AppWPF\ToolsList\ToolsList\obj\Debug\net6.0-windows\ToolsList.pdb
 D:\Dev\C#\AppWPF\ToolsList\ToolsList\obj\Debug\net6.0-windows\ToolsList.genruntimeconfig.cache
 D:\Dev\C#\AppWPF\ToolsList\ToolsList\obj\Debug\net6.0-windows\ref\ToolsList.dll
 D:\Dev\C#\AppWPF\ToolsList\ToolsList\obj\Debug\net6.0-windows\Views\MainView.g.cs
-D:\Dev\C#\AppWPF\ToolsList\ToolsList\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\Dev\C#\AppWPF\ToolsList\ToolsList\obj\Debug\net6.0-windows\Views\MainView.baml
 D:\Dev\C#\AppWPF\ToolsList\ToolsList\bin\Debug\net6.0-windows\EntityFramework.SqlServer.dll
 D:\Dev\C#\AppWPF\ToolsList\ToolsList\bin\Debug\net6.0-windows\EntityFramework.dll

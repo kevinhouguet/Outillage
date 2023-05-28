@@ -6,17 +6,40 @@
         xmlns:views="clr-namespace:ToolsList.Views"
         xmlns:local="clr-namespace:ToolsList"
         mc:Ignorable="d"
-        Title="Outillage" Height="450" Width="800">
-    <Grid>
+        Title="Outillage" Height="600" Width="800">
+    <Window.Resources>
+        <Style x:Key="Container" TargetType="Grid">
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style x:Key="Title" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Margin" Value="0 0 0 10"/>
+        </Style>
+        <Style x:Key="SubTitle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="0 10"/>
+        </Style>
+        <Style x:Key="Label" TargetType="TextBlock">
+            <Setter Property="Margin" Value="0 0 10 0"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="Fields" TargetType="Grid">
+            <Setter Property="Margin" Value="0 0 0 10"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="10 5"/>
+        </Style>
+    </Window.Resources>
+    <Grid Style="{StaticResource Container}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Outillage" HorizontalAlignment="Center"/>
+        <TextBlock Style="{StaticResource Title}" Text="Outillage" HorizontalAlignment="Center"/>
 
         <!-- Outils Selection -->
 
@@ -25,7 +48,7 @@
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Selectionner un outil :" VerticalAlignment="Center"/>
+            <TextBlock Style="{StaticResource Label}" Text="Selectionner un outil :" VerticalAlignment="Center"/>
             <ComboBox Grid.Column="1" VerticalAlignment="Center" Name="OutilsList" SelectionChanged="OutilsList_SelectionChanged">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -39,7 +62,7 @@
 
         <!-- Details -->
 
-        <Grid Grid.Row="3" Name="DetailsContent">
+        <Grid Grid.Row="3" Name="DetailsContent" Grid.IsSharedSizeScope="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
@@ -47,35 +70,35 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Details"/>
-            <Grid Grid.Row="1">
+            <TextBlock Style="{StaticResource SubTitle}" Text="Details"/>
+            <Grid Grid.Row="1" Style="{StaticResource Fields}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Label"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Nom :"/>
+                <TextBlock Style="{StaticResource Label}" Text="Nom :"/>
                 <TextBlock Grid.Column="1" Text="{Binding Name}"  Name="DetailsName"/>
             </Grid>
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="2" Style="{StaticResource Fields}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Label"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Stock :"/>
+                <TextBlock Style="{StaticResource Label}" Text="Stock :"/>
                 <TextBlock Grid.Column="1" Text="{Binding Stock}"  Name="DetailsStock"/>
             </Grid>
-            <Grid Grid.Row="3">
+            <Grid Grid.Row="3" Style="{StaticResource Fields}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Label"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Place :"/>
+                <TextBlock Style="{StaticResource Label}" Text="Place :"/>
                 <TextBlock Grid.Column="1" Text="{Binding Place}" Name="DetailsPlace"/>
             </Grid>
             <Button Grid.Row="4" Content="Supprimer" HorizontalAlignment="Left" Click="Del_Click"/>
         </Grid>
         <!--#region Edit Layout -->
-        <Grid Grid.Row="4" Name="EditLayout">
+        <Grid Grid.Row="4" Name="EditLayout" Grid.IsSharedSizeScope="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
@@ -83,29 +106,29 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Editer"/>
-            <Grid Grid.Row="1">
+            <TextBlock Style="{StaticResource SubTitle}" Text="Editer"/>
+            <Grid Grid.Row="1" Style="{StaticResource Fields}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Label"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Nom :"/>
+                <TextBlock Style="{StaticResource Label}" Text="Nom :"/>
                 <TextBox Grid.Column="1" Text="{Binding Name}"  Name="EditName"/>
             </Grid>
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="2" Style="{StaticResource Fields}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Label"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Stock :"/>
+                <TextBlock Style="{StaticResource Label}" Text="Stock :"/>
                 <TextBox Grid.Column="1" Text="{Binding Stock}"  Name="EditStock"/>
             </Grid>
-            <Grid Grid.Row="3">
+            <Grid Grid.Row="3" Style="{StaticResource Fields}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Label"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Place :"/>
+                <TextBlock Style="{StaticResource Label}" Text="Place :"/>
                 <TextBox Grid.Column="1" Text="{Binding Place}" Name="EditPlace"/>
             </Grid>
             <Button Grid.Row="4" Content="Editer" HorizontalAlignment="Left" Click="Edit_Click"/>
@@ -114,7 +137,7 @@
 
         <!-- Add Layout -->
 
-        <Grid Grid.Row="5" Name="AddLayout">
+        <Grid Grid.Row="5" Name="AddLayout" Grid.IsSharedSizeScope="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
@@ -122,29 +145,29 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Ajouter"/>
-            <Grid Grid.Row="1">
+            <TextBlock Style="{StaticResource SubTitle}" Text="Ajouter"/>
+            <Grid Grid.Row="1" Style="{StaticResource Fields}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Label"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Nom :"/>
+                <TextBlock Style="{StaticResource Label}" Text="Nom :"/>
                 <TextBox Grid.Column="1" Text="{Binding Name}"  Name="AddName"/>
             </Grid>
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="2" Style="{StaticResource Fields}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Label"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Stock :"/>
+                <TextBlock Style="{StaticResource Label}" Text="Stock :"/>
                 <TextBox Grid.Column="1" Text="{Binding Stock}"  Name="AddStock"/>
             </Grid>
-            <Grid Grid.Row="3">
+            <Grid Grid.Row="3" Style="{StaticResource Fields}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Label"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Place :"/>
+                <TextBlock Style="{StaticResource Label}" Text="Place :"/>
                 <TextBox Grid.Column="1" Text="{Binding Place}" Name="AddPlace"/>
             </Grid>
             <Button Grid.Row="4" Content="Ajouter" HorizontalAlignment="Left" Click="Add_Click"/>

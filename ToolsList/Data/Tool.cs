@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToolsList.Data
 {
+    // Create a model of entity
     public class Tool
     {
         public int Id { get; set; }
