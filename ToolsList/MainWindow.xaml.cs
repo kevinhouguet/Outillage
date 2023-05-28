@@ -61,7 +61,17 @@ namespace ToolsList
             if(this.NewTool != null)
             {
                 context.Tools.Add(NewTool); // add layout data context was bind to NewTool, so this add the add layout data context to dbcontext.
-                context.SaveChanges(); // save the changes of context into db/
+
+                try
+                {
+                    context.SaveChanges(); // save the changes of context into db/
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.InnerException);
+                    MessageBox.Show(ex.Message);
+                }
+
                 PutItemsInView(); // update the list with the new context data
 
                 // reset the declaration of NewTool and binding to AddLayout data context
@@ -80,7 +90,17 @@ namespace ToolsList
                 Debug.WriteLine("Edit Click");
                 context.Update(selectedTool); // update the context with the new informations of selectedTool
                 Debug.WriteLine(selectedTool.Name);
-                context.SaveChanges();
+
+                try
+                {
+                    context.SaveChanges(); // save the changes of context into db/
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.InnerException);
+                    MessageBox.Show(ex.Message);
+                }
+
                 PutItemsInView();
             }
         }
@@ -93,7 +113,17 @@ namespace ToolsList
             if (this.selectedTool != null)
             {
                 context.Tools.Remove(selectedTool); // remove selectedTool in Tools DbSet Collection from Dbcontext
-                context.SaveChanges();
+               
+                try
+                {
+                    context.SaveChanges(); // save the changes of context into db/
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.InnerException);
+                    MessageBox.Show(ex.Message);
+                }
+
                 PutItemsInView();
             }
         }
