@@ -17,7 +17,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ToolsList.Data;
-using ToolsList.Models;
 using ToolsList.ViewModels;
 
 namespace ToolsList.Views
@@ -28,27 +27,22 @@ namespace ToolsList.Views
     public partial class MainView : UserControl
     {
         public ToolsListViewModels ToolsListViewModels = new ToolsListViewModels();
-        public Tools selectedTools;
+        public Tool selectedTools;
 
-        ToolDbContext context;
-        Tool NewTool = new Tool();
-        Tool selectedTool = new Tool();
 
-        public MainView(ToolDbContext context)
+        public MainView(string test)
         {
-            /*this.DataContext = this;*/
-            this.context = context;
+            /*this.context = context;*/
+            Debug.WriteLine("test" + test);
             InitializeComponent();
-            GetTools();
-            OutilsList.ItemsSource = ToolsListViewModels.OutilsListItems;
+            /*GetTools();
+            OutilsList.ItemsSource = ToolsListViewModels.OutilsListItems;*/
         }
 
         private void OutilsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            /*
-             * https://wpf-tutorial.com/list-controls/combobox-control/
-             */
-            selectedTools = (OutilsList.SelectedValue as Tools);
+            // https://wpf-tutorial.com/list-controls/combobox-control/
+            selectedTools = (OutilsList.SelectedValue as Tool);
             this.RenderView();
         }
 
@@ -68,59 +62,26 @@ namespace ToolsList.Views
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            ToolsListViewModels.OutilsListItems.Add(new Tools(AddName.Text, AddStock.Text, AddPlace.Text));
+            /*ToolsListViewModels.OutilsListItems.Add(new Tools(AddName.Text, AddStock.Text, AddPlace.Text));*/
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            if(this.selectedTools != null)
+            /*if (this.selectedTools != null)
             {
                 ToolsListViewModels.OutilsListItems.Remove(this.selectedTools);
                 ToolsListViewModels.OutilsListItems.Add(new Tools(EditName.Text, EditStock.Text, EditPlace.Text));
-            }
+            }*/
         }
 
         private void Del_Click(object sender, RoutedEventArgs e)
         {
-            if (this.selectedTools != null)
+            /*if (this.selectedTools != null)
             {
                 ToolsListViewModels.OutilsListItems.Remove(this.selectedTools);
-            }
+            }*/
         }
 
-        private void GetTools()
-        {
-            /*ToolDG.ItemsSource = context.Tools.ToList();*/
-        }
 
-        private void AddItem(object s, RoutedEventArgs e)
-        {
-            /*context.Tools.Add(NewTool);
-            context.SaveChanges();
-            GetTools();
-            NewTool = new Tool();
-            NewToolGrid.DataContext = NewTool;*/
-        }
-
-        private void UpdateItem(object s, RoutedEventArgs e)
-        {
-            /*context.Update(selectedTool);
-            context.SaveChanges();
-            GetTools();*/
-        }
-
-        private void SelectToolToEdit(object s, RoutedEventArgs e)
-        {
-            /*selectedTool = (s as FrameworkElement).DataContext as Tool;
-            UpdateToolGrid.DataContext = selectedTool;*/
-        }
-
-        private void DeleteTool(object s, RoutedEventArgs e)
-        {
-            /*var ToolToDelete = (s as FrameworkElement).DataContext as Tool;
-            context.Tools.Remove(ToolToDelete);
-            context.SaveChanges();
-            GetTools();*/
-        }
     }
 }

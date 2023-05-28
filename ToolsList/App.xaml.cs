@@ -21,21 +21,23 @@ namespace ToolsList
 
         public App()
         {
+            // https://learn.microsoft.com/fr-fr/archive/msdn-magazine/2016/june/essential-net-dependency-injection-with-net-core
             ServiceCollection services = new ServiceCollection();
 
+            // push a DbContext in services to have the app communicate with DB any time in the life of application
             services.AddDbContext<ToolDbContext>(options =>
             {
                 options.UseSqlite("Data Source = Tool.db");
             });
 
-            services.AddSingleton<MainWindow>();
-            serviceProvider = services.BuildServiceProvider();
+            services.AddSingleton<MainWindow>(); // using of One instance of MainWindow
+            serviceProvider = services.BuildServiceProvider(); // building services
         }
 
         private void OnStartup(object s, StartupEventArgs e)
         {
-            var mainWindow = serviceProvider.GetService<MainWindow>();
-            mainWindow.Show();
+            var mainWindow = serviceProvider.GetService<MainWindow>(); // retrieve MainWindow from the service provider
+            mainWindow.Show(); // display the mainWindow.
         }
     }
 }
